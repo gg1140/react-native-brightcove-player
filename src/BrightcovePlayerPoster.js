@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { requireNativeComponent, View, ViewPropTypes } from 'react-native';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { requireNativeComponent, View } from "react-native";
+import { ViewPropTypes } from "deprecated-react-native-prop-types";
 
 class BrightcovePlayerPoster extends Component {
-  setNativeProps = nativeProps => {
+  setNativeProps = (nativeProps) => {
     if (this._root) {
       this._root.setNativeProps(nativeProps);
     }
@@ -12,7 +13,7 @@ class BrightcovePlayerPoster extends Component {
   render() {
     return (
       <NativeBrightcovePlayerPoster
-        ref={e => (this._root = e)}
+        ref={(e) => (this._root = e)}
         {...this.props}
       />
     );
@@ -25,13 +26,13 @@ BrightcovePlayerPoster.propTypes = {
   accountId: PropTypes.string,
   referenceId: PropTypes.string,
   videoId: PropTypes.string,
-  videoToken: PropTypes.string
+  videoToken: PropTypes.string,
 };
 
 BrightcovePlayerPoster.defaultProps = {};
 
 const NativeBrightcovePlayerPoster = requireNativeComponent(
-  'BrightcovePlayerPoster',
+  "BrightcovePlayerPoster",
   BrightcovePlayerPoster
 );
 
